@@ -27,4 +27,13 @@ This is a short introduction to pandas, geared mainly for new pandas users. It i
 4. **Data Science with Python**: [Applied Data Science with Python Specialization](https://www.coursera.org/specializations/data-science-python)<br/>
 The tutorials are from the University of Michigan specialization, and there are 5 courses provided on coursera. It introduce learners to data science through the python programming language. This specialization is for those who already have basic python background, and then apply **statistical**, **machine learning**, **information visualization**, **text analysis** and **social network analysis** techniques through popular python toolkits such as **pandas**, **matplotlib**, **scikit-learn**, **nltk**, and **networkx** to gain insight into the data. This is a quite good specialization, leading us to the data science world with python. 
 
+5. **Cheat Sheets**:<br/>
+* From DataQuest:
+   * [Numpy](https://www.dataquest.io/blog/images/cheat-sheets/numpy-cheat-sheet.pdf)
+   * [Pandas](https://www.dataquest.io/blog/images/cheat-sheets/pandas-cheat-sheet.pdf)
+* From DataCamp:
+   * [Numpy](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf)
+   * [Pandas](http://datacamp-community.s3.amazonaws.com/3857975e-e12f-406a-b3e8-7d627217e952)
+
+
 
