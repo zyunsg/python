@@ -26,8 +26,8 @@ This is a short introduction to pandas, geared mainly for new pandas users. It i
 
 4. **Cheat Sheets**:<br/>
 * From DataQuest:
-   * [Numpy](https://www.dataquest.io/blog/images/cheat-sheets/numpy-cheat-sheet.pdf)
-   * [Pandas](https://www.dataquest.io/blog/images/cheat-sheets/pandas-cheat-sheet.pdf)
+   * [Numpy](https://github.com/zyunsg/Python/tree/master/cheatsheets/numpy-cheat-sheet.pdf)
+   * [Pandas](https://github.com/zyunsg/Python/tree/master/cheatsheets/pandas-cheat-sheet.pdf)
 
 
 
