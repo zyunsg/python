@@ -1,6 +1,11 @@
 # Python tutorials 
 There are lots of python tutorials online. Following is a summary of the python turorials that help me a lot when I learn python. Hope they can also help you. :)
 
+To begain with, the IDE choice? 
++ [Pycharm](https://www.jetbrains.com/pycharm/): An excellent python IDE. For students, can apply for the [free professional version](https://www.jetbrains.com/student/). It has a lot of great features. For example, it supports [remote server connection](https://www.jetbrains.com/help/pycharm/creating-a-remote-server-configuration.html).
+
++ [Jupyter](https://www.anaconda.com/download/): Install the Anaconda 2.7 or 3.6, which will greatly help you manage you python libraries. 
+
 1. **Basics & Overview**: [Stanford University CS41](http://stanfordpython.com/) <br/>
 The tutorial is from Stanford CS41 happy code - the python programming language, though I dont think it is "happy". The tutorial is well prepared, and quite suitable for beginners. It will teach you the fundamentals and contemporay usage of Python, with a focus on developing best practices in writing Python and exploring the extensible and unique parts of the language. It covers follwing topics: 
     * Python Fundamentals
