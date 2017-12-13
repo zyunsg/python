@@ -26,8 +26,8 @@ It covers following contents:
 * Scipy
 * Matplotlib
 
-### 4. Pandas Tutorial: [10 Minutes to pandas](https://pandas.pydata.org/pandas-docs/stable/10min.html)<br/>
-This is a short introduction to pandas, geared mainly for new pandas users. It is a good beginning tutorial, will help you to be familar with pandas. The pandas library will be useful in data processing when doing real projects. You will see its power when attending Kaggle competitions. Here is a guide to [more pandas tutorials](https://pandas.pydata.org/pandas-docs/stable/tutorials.html), and my own [pandas summary](https://github.com/zyunsg/Python/tree/master/pandas).
+### 4. Pandas Tutorial: 
+Quickly check: [10 Minutes to pandas](https://pandas.pydata.org/pandas-docs/stable/10min.html).This is a short introduction to pandas, geared mainly for new pandas users. It is a good beginning tutorial, will help you to be familar with pandas. The pandas library will be useful in data processing when doing real projects. You will see its power when attending Kaggle competitions. Here is a guide to [more pandas tutorials](https://pandas.pydata.org/pandas-docs/stable/tutorials.html), and my own [pandas summary](https://github.com/zyunsg/Python/tree/master/pandas).
 
 ### 5. Cheat Sheets:<br/>
 * From DataQuest:
