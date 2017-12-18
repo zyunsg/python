@@ -6,4 +6,5 @@
 + [04_Merge_Join_Concatenate](https://github.com/zyunsg/Python/blob/master/pandas/04_Merge_Join_Concatenate.ipynb)
 + [05_GroupBy](https://github.com/zyunsg/Python/blob/master/pandas/05_GroupBy.ipynb)
 + [06_Pivot_Tables](https://github.com/zyunsg/Python/blob/master/pandas/06_Pivot_Tables.ipynb)
++ [07_Stacking_Unstacking](https://github.com/zyunsg/Python/blob/master/pandas/07_Stacking_Unstacking.ipynb)
 + 
