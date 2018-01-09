@@ -18,7 +18,7 @@ The tutorial is from Stanford CS41 happy code - the python programming language,
 * Advanced Topics 
 * Projects
 
-### 3. Numpy Tutorial: [CS231n](http://cs231n.github.io/python-numpy-tutorial/) <br/>
+### 3. Numpy: [CS231n](http://cs231n.github.io/python-numpy-tutorial/) <br/>
 The section is a **quick crash course** both on the pyhon programming language and on the use of Python for **scientific computing**.
 It covers following contents:
 * Python (Basics, Containers, Functions, Classes)
@@ -26,7 +26,7 @@ It covers following contents:
 * Scipy
 * Matplotlib
 
-### 4. Pandas Tutorial: 
+### 4. Pandas: 
 Quickly check: [10 Minutes to pandas](https://pandas.pydata.org/pandas-docs/stable/10min.html).This is a short introduction to pandas, geared mainly for new pandas users. It is a good beginning tutorial, will help you to be familar with pandas. The pandas library will be useful in data processing when doing real projects. You will see its power when attending Kaggle competitions. Here is a guide to [more pandas tutorials](https://pandas.pydata.org/pandas-docs/stable/tutorials.html), and my own [pandas summary](https://github.com/zyunsg/Python/tree/master/pandas).
 
 ### 5. Cheat Sheets:<br/>
