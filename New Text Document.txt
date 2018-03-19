@@ -1,0 +1,147 @@
+def DecileReport(y_true, y_pred, group=10):
+    '''
+    to generate the decile report (Ks, Gain, Lift@decile, Lift@total)
+    act: actual values
+    pred: prediction values
+    group: # of deciles 
+    '''
+    
+    #Construct dataframe: 
+    pdict = pd.DataFrame({"true":y_true, "pred":y_pred})
+    pdict['decile'] = pd.qcut(pdict['pred'], group, labels=False)
+    report = pdict.groupby(['decile']).agg({'true': {'#pop' : 'count', '#num1': 'sum'},
+                                            'pred': {'prob_min': 'min', 'prob_max': 'max'}})
+    
+    
+    report.columns = report.columns.droplevel(0) #drop level0('true', 'pred')
+    report.sort_index(ascending=False, inplace=True) #sort index
+    
+    #counts
+    report['#num0'] = report['#pop'] - report['#num1'] 
+    
+    #percent
+    report['%pop'] = report['#pop'] / sum(report['#pop'])
+    report['%num1'] = report['#num1'] / sum(report['#num1'])
+    report['%num0'] = report['#num0'] / sum(report['#num0'])
+    
+    #cumulative
+    report['cum%pop'] = report['%pop'].cumsum()
+    report['cum%num1'] = report['%num1'].cumsum()
+    report['cum%num0'] = report['%num0'].cumsum()
+    
+    #result
+    report['ks'] = report['cum%num1'] - report['cum%num0']
+    report['lift@decile'] = report['%num1'] / report['%pop']
+    report['lift@total'] = report['cum%num1'] / report['cum%pop']
+    
+    '''
+    return:
+    prob_min: minimum probablity
+    prob_max: maximum probablity 
+    
+    #pop: number of cases in its group
+    #num1: number of positive(events/responses..)
+    #num0: number of negative(non events/responses..)
+    
+    %pop: percentage of cases 
+    %num1: percentage of positive
+    %num0: percentage of negative
+    
+    cum%pop: cumulative percentage of cases
+    cum%num1: cumulative percentage of positive
+    cum%num0: cumulative percentage of negative
+    
+    ks: the degree of separation between the positive and negative distributions
+    lift@decile: lift in each group, (%num1/%pop)
+    lift@total: lift total, (cum%num1/cum%pop)
+    '''
+    
+    return report.round(3)
+
+
+
+import plotly
+import plotly.graph_objs as go
+plotly.offline.init_notebook_mode(connected=True)
+
+#Data
+x1 = dr_data['cum%pop'].tolist()
+y1 = dr_data['cum%num1'].tolist()
+y2 = dr_data['cum%num0'].tolist()
+y3 = dr_data['lift@decile'].tolist()
+y4 = [1] * 10
+y5= dr_data['lift@total'].tolist()
+
+
+#KS
+ks1 = go.Scatter(name='%Event', x=[0]+x1, y=[0]+y1)
+ks2 = go.Scatter(name='%Non-event', x=[0]+x1, y=[0]+y2)
+
+#Gain
+gain1 = go.Scatter(name='Model', x=[0]+x1, y=[0]+y1)
+gain2 = go.Scatter(name='Random', x=[0]+x1, y=[0]+x1)
+
+#Lift@Decile
+lift_d1 = go.Scatter(name='Model', x=x1, y=y3)
+lift_d2 = go.Scatter(name='Random', x=x1, y=y4)
+
+#Lift@Total
+lift_t1 = go.Scatter(name='Model', x=x1, y=y5)
+lift_t2 = go.Scatter(name='Random', x=x1, y=y4)
+
+
+
+fig = plotly.tools.make_subplots(rows=2, cols=2, subplot_titles=('K-S Chart', 'Cummulative Gain Chart', 
+                                                                 'Lift@Decile Chart', 'Lift@Total Chart'))
+fig.append_trace(ks1, 1, 1)
+fig.append_trace(ks2, 1, 1)
+
+fig.append_trace(gain1, 1, 2)
+fig.append_trace(gain2, 1, 2)
+
+fig.append_trace(lift_d1, 2, 1)
+fig.append_trace(lift_d2, 2, 1)
+
+fig.append_trace(lift_t1, 2, 2)
+fig.append_trace(lift_t2, 2, 2)
+
+fig['layout']['xaxis1'].update(title='%Population')
+fig['layout']['xaxis2'].update(title='%Population')
+fig['layout']['xaxis3'].update(title='%Population')
+fig['layout']['xaxis4'].update(title='%Population')
+
+fig['layout']['yaxis1'].update(title='%Count')
+fig['layout']['yaxis2'].update(title='%Event')
+fig['layout']['yaxis3'].update(title='Lift@decile')
+fig['layout']['yaxis4'].update(title='Lift@total')
+
+fig['layout']['legend'].update()
+
+fig['layout'].update(legend=dict(), title='Decile Report', width=1100, height=900)
+plotly.offline.iplot(fig)
+
+
+
+
+#KS
+x1 = [0] + dr_data['cum%pop'].tolist()
+y1 = [0] + dr_data['cum%num1'].tolist()
+
+x2 = [0] + dr_data['cum%pop'].tolist()
+y2 = [0] + dr_data['cum%num0'].tolist()
+
+
+trace1 = go.Scatter(name='%Event',
+                    x=x1, y=y1)
+trace2 = go.Scatter(name='%Non-event',
+                    x=x2, y=y2)
+layout=go.Layout(
+                width=550, height=400,
+                title='K-S Chart',
+                xaxis= dict(title= '%Population', range=[0,1]),
+                yaxis=dict(title= '%Event')
+                )
+data = [trace1, trace2]
+
+fig= go.Figure(data=data,layout=layout)
+plotly.offline.iplot(fig)
